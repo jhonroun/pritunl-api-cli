@@ -378,7 +378,7 @@ This handler contains next action:
 | urls     | Get url to access User keys (ovpn config file)| Require `string` UserId and `string` OrganizationId separated by space| `string` [error] or `[]Json` [KeyData](###KeyData).
 
 ## PM me
-[Telegram](t.me/lemtech)
+[Telegram](https:/t.me/lemtech)
 
 ## License
 
