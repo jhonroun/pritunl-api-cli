@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
+	"reflect"
 	"strconv"
 )
 
@@ -191,7 +192,8 @@ func host_get() {
 		fmt.Println(err)
 	} else {
 		for i := 0; i < len(Hosts); i++ {
-			fmt.Println(Hosts[i])
+			pret, _ := json.Marshal(Hosts[i])
+			fmt.Println(string(pret))
 		}
 	}
 }
@@ -208,7 +210,10 @@ func host_byserver() {
 	if err != nil {
 		fmt.Println(err)
 	} else {
-		fmt.Println(Hosts)
+		for i := 0; i < len(Hosts); i++ {
+			pret, _ := json.Marshal(Hosts[i])
+			fmt.Println(string(pret))
+		}
 	}
 }
 
@@ -256,7 +261,8 @@ func server_get() {
 	if err != nil {
 		fmt.Println(err)
 	} else {
-		fmt.Println(Server)
+		pret, _ := json.Marshal(Server)
+		fmt.Println(string(pret))
 	}
 }
 
@@ -269,7 +275,8 @@ func server_getall() {
 		fmt.Println(err)
 	} else {
 		for i := 0; i < len(Server); i++ {
-			fmt.Println(Server[i])
+			pret, _ := json.Marshal(Server[i])
+			fmt.Println(string(pret))
 		}
 	}
 }
@@ -287,7 +294,8 @@ func server_create() {
 	if err != nil {
 		fmt.Println(err)
 	} else {
-		fmt.Println(Server)
+		pret, _ := json.Marshal(Server)
+		fmt.Println(string(pret))
 	}
 }
 
@@ -374,7 +382,8 @@ func organization_get() {
 	if err != nil {
 		fmt.Println(err)
 	} else {
-		fmt.Println(Organization)
+		pret, _ := json.Marshal(Organization)
+		fmt.Println(string(pret))
 	}
 }
 
@@ -387,7 +396,8 @@ func organization_getall() {
 		fmt.Println(err)
 	} else {
 		for i := 0; i < len(Organization); i++ {
-			fmt.Println(Organization[i])
+			pret, _ := json.Marshal(Organization[i])
+			fmt.Println(string(pret))
 		}
 	}
 }
@@ -405,7 +415,8 @@ func organization_byserver() {
 		fmt.Println(err)
 	} else {
 		for i := 0; i < len(Organization); i++ {
-			fmt.Println(Organization[i])
+			pret, _ := json.Marshal(Organization[i])
+			fmt.Println(string(pret))
 		}
 	}
 }
@@ -422,7 +433,8 @@ func organiation_create() {
 	if err != nil {
 		fmt.Println(err)
 	} else {
-		fmt.Println(Organization)
+		pret, _ := json.Marshal(Organization)
+		fmt.Println(string(pret))
 	}
 }
 
@@ -509,7 +521,8 @@ func user_get() {
 	if err != nil {
 		fmt.Println(err)
 	} else {
-		fmt.Println(User)
+		pret, _ := json.Marshal(User)
+		fmt.Println(string(pret))
 	}
 }
 
@@ -526,7 +539,8 @@ func user_getall() {
 		fmt.Println(err)
 	} else {
 		for i := 0; i < len(User); i++ {
-			fmt.Println(User[i])
+			pret, _ := json.Marshal(User[i])
+			fmt.Println(string(pret))
 		}
 	}
 }
@@ -549,7 +563,8 @@ func user_create() {
 	if errx != nil {
 		fmt.Println(err)
 	} else {
-		fmt.Println(User)
+		pret, _ := json.Marshal(User)
+		fmt.Println(string(pret))
 	}
 }
 
@@ -604,7 +619,9 @@ func key_get() {
 	if err != nil {
 		fmt.Println(err)
 	} else {
-		fmt.Println(Key)
+		keys := reflect.ValueOf(Key).MapKeys()
+		valueOf := keys[0]
+		fmt.Println(Key[valueOf.String()])
 	}
 }
 
@@ -620,7 +637,8 @@ func key_url() {
 	if err != nil {
 		fmt.Println(err)
 	} else {
-		fmt.Println(Key)
+		pret, _ := json.Marshal(Key)
+		fmt.Println(string(pret))
 	}
 }
 
@@ -637,7 +655,8 @@ func route_byserver() {
 		fmt.Println(err)
 	} else {
 		for i := 0; i < len(Routes); i++ {
-			fmt.Println(Routes[i])
+			pret, _ := json.Marshal(Routes[i])
+			fmt.Println(string(pret))
 		}
 	}
 }
